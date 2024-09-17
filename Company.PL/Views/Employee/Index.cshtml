@@ -1,0 +1,108 @@
+﻿@model IEnumerable<EmployeeViewModel>;
+@{
+    ViewData["Title"] = "Index";
+}
+<link href="~/css/cardemp.css" rel="stylesheet" />
+@*  <div class="alert alert-success">
+    @ViewData["Message"]
+</div> *@  
+
+@* <div class="alert alert-success">
+    @ViewBag.Message
+</div> *@
+
+@if (TempData["Message"] is not null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @Model.Last().Name @TempData["Message"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+   @*  <div class="alert alert-success">
+        @TempData["Message"]
+    </div> *@
+}
+
+<br />
+
+<h1>All Employee</h1>
+<br />
+@if (User.IsInRole("Admin"))
+{
+    <a class="btn btn-success" asp-action="Create">
+        <i class="fas fa-plus"></i>
+        Add New Employee
+    </a>
+}
+<br />
+<br />
+  <div class="row justify-content-center align-content-center">
+      <form class="row form-group col-8 offset-1">
+          <div class="col-8">
+              <input type="text" style="background-color :azure" class="form-control " name="Searchvalue" placeholder="Search By Name"  />
+          </div>
+          <div class="col-4">
+              <input type="submit" class="btn btn-success"  value="Search"/>
+          </div>
+      </form>
+
+  </div>
+<br />@if (Model.Count() > 0)
+{
+    <div class="card__container">
+        @foreach (var employee in Model)
+        {
+            <div class="card__article">
+                <div class="card__image">
+                    <img src="~/Files/Images/@employee.ImageName" alt="Employee image" class="card__img">
+                    <div class="card__shadow"></div>
+                </div>
+                <div class="card__data">
+                    <h3 class="card__name">@employee.Name</h3>
+                    <p class="card__description">
+                        <strong>Email:</strong> @employee.Email <br />
+                        <strong>Address:</strong> @employee.Address<br />
+                        <strong>Phone:</strong> @employee.PhoneNumber<br />
+                        <strong>Age:</strong> @employee.Age <br />
+                        <strong>Department:</strong> @employee.department?.Name<br />
+                        @if (employee.IsActive)
+                       {
+                            <i class="fa-solid fa-circle" style="color:green"></i>
+                            
+                       } else
+                        {
+                            <i class="fa-solid fa-circle" style="color:red"></i>
+                            
+                        }
+                    
+                    </p>
+                    <div class="card-actions">
+                        <a asp-action="details" asp-route-id="@employee.Id">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                        -
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@employee.Id">
+                                <i class="fas fa-edit"></i> -
+                            </a>
+                             
+                            <a asp-action = "Delete" asp - route - id = "@employee.Id" >
+                             <i class="fas fa-trash"></i>
+                             </a>
+                        }
+                      
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="mt-5 alert alert-warning">
+        <h1>There is no Employee </h1>
+    </div>
+}

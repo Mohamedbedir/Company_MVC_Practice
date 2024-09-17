@@ -1,0 +1,33 @@
+﻿@model RoleViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create A New Role</h1>
+
+
+<br />
+
+<br />
+<form asp-action="Create">
+    <div class="form-group">
+        <label class="col-form-label" asp-for="RoleName"></label>
+        <input class="form-control" asp-for="RoleName" />
+        <span asp-validation-for="RoleName" class="text-danger"></span>
+    </div>
+   
+    <br />
+
+    <input type="submit" value="Submit" class="btn btn-success" />
+    |
+    <a class="btn btn-light" asp-action="Index">Back to List <i class="fas fa-arrow-right"></i></a>
+</form>
+
+
+@section SectionrenderingCSV{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}

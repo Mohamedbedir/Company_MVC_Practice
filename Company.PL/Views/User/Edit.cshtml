@@ -1,0 +1,38 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Edit";
+    // var departments = new SelectList(ViewBag.department, "Id", "Name");
+
+}
+
+
+<h1>Edit User Name: @Model.UserName</h1>
+<br />
+<br />
+<form asp-action="Edit">
+    <div class="form-group">
+        <label class="col-form-label" asp-for="FName"></label>
+        <input class="form-control" asp-for="FName" />
+        <span asp-validation-for="FName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="LName"></label>
+        <input class="form-control" asp-for="LName" />
+        <span class="text-danger" asp-validation-for="LName"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="PhoneNumber"></label>
+        <input class="form-control" asp-for="PhoneNumber" />
+        <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+    </div>
+   
+    <input type="submit" value="Save" class="btn btn-success" />  |
+    <a class="btn btn-light" asp-action="Index">Back to List <i class="fas fa-arrow-right"></i></a>
+</form>
+
+@section SectionrenderingCSV{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}

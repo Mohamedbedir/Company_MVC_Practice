@@ -1,0 +1,54 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h4 class="alert-danger">Are You Sure You Want To Delete @Model.UserName user</h4>
+<br />
+<br />
+
+
+
+<form asp-action="Delete">
+
+    <div asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Id"></label>
+        <input class="form-control" asp-for="Id" />
+
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="FName"></label>
+        <input class="form-control" asp-for="FName" />
+      
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="LName"></label>
+        <input class="form-control" asp-for="LName" />
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Email"></label>
+        <input class="form-control" asp-for="Email" />
+       
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="PhoneNumber"></label>
+        <input class="form-control" asp-for="PhoneNumber" />
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="PhoneNumber"></label>
+        <input class="form-control" asp-for="PhoneNumber" />
+        <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Roles"></label>
+        <input class="form-control" asp-for="Roles" />
+    </div>
+    
+
+    @*<a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a> |*@
+    <input type="submit" value="Delete" class="btn btn-danger " />
+    <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-times"></i> Cancel</a>
+</form>
+
+

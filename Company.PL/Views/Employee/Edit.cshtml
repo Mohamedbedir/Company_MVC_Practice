@@ -1,0 +1,71 @@
+﻿@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Edit";
+   // var departments = new SelectList(ViewBag.department, "Id", "Name");
+
+}
+
+
+<h1>Edit Employee Name: @Model.Name</h1>
+<br />
+<br />
+<form asp-action="Edit">
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Age"></label>
+        <input class="form-control" asp-for="Age" />
+        <span class="text-danger" asp-validation-for="Age"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Address"></label>
+        <input class="form-control" asp-for="Address" />
+        <span class="text-danger" asp-validation-for="Address"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Email"></label>
+        <input class="form-control" asp-for="Email" />
+        <span class="text-danger" asp-validation-for="Email"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="PhoneNumber"></label>
+        <input class="form-control" asp-for="PhoneNumber" />
+        <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Salary"></label>
+        <input class="form-control" asp-for="Salary" />
+        <span class="text-danger" asp-validation-for="Salary"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="department"></label>
+        <select class="form-control" asp-items="@(ViewBag.department != null ? new SelectList(ViewBag.department, "Id", "Name") : new SelectList(new List<object>(), "Id", "Name"))" asp-for="DepartmentId">
+            <option value="@null">
+                -----hasn't department-----
+            </option>
+        </select>
+    </div>
+  
+    <div class="form-group">
+        <label class="col-form-label" asp-for="IsActive"></label>
+        <input class="form-control" asp-for="IsActive" type="checkbox" />
+        <span class="text-danger" asp-validation-for="IsActive"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="hireDate"></label>
+        <input class="form-control" asp-for="hireDate" />
+    </div>
+    <br />
+    <input type="submit" value="Save" class="btn btn-success" />  |
+    <a class="btn btn-light" asp-action="Index">Back to List <i class="fas fa-arrow-right"></i></a>
+</form>
+
+@section SectionrenderingCSV{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}

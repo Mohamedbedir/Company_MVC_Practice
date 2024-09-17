@@ -1,0 +1,82 @@
+﻿.card__container {
+    display: flex;
+    flex-wrap: wrap; /* يتيح للكاردات أن تتوزع إذا كانت أكبر من عرض الشاشة */
+    justify-content: center; /* الوسط التوزيع الأفقي */
+    padding: 2rem; /* إضافة حشوة حول الكاردات */
+}
+
+.card__article {
+    width: 300px; /* عرض الكارد */
+    border-radius: 1.25rem;
+    background-color:cadetblue;
+    overflow: hidden;
+    margin: 1rem; /* إضافة مساحة بين الكاردات */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* ظل خفيف للكارد */
+    transition: transform 0.3s; /* تأثير على التحويم */
+}
+
+    .card__article:hover {
+        transform: scale(1.02); /* تكبير الكارد عند التحويم */
+    }
+
+.card__description {
+    font-weight: 500;
+    margin-bottom: .75rem; /* مسافة أقل بين النصوص */
+}
+
+/* سيؤدي إلى جعل كل صورة تصبح كريمة */
+
+
+input[type="text"] {
+    border: 1px solid var(--second-color);
+    border-radius: .25rem;
+    padding: .5rem;
+}
+
+.btn-success {
+    border-radius: .25rem;
+    padding: .5rem 1rem;
+}
+
+.card__data {
+    background-color: var(--container-color);
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    text-align: center; /* جعل كل النصوص مركزية */
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column; /* عمودي */
+    align-items: center; /* توسيط كل العناصر */
+}
+
+.card-actions {
+    display: flex;
+    justify-content: center; /* توسيط الأزرار */
+    margin-top: 1rem; /* إضافة مساحة فوق الأزرار */
+    padding:2px;
+}
+
+.card__img {
+    width: 120px; /* عرض الصورة */
+    height: 120px; /* ارتفاع الصورة */
+    border-radius: 50%; /* جعل الصورة دائرية */
+    display: block; /* التأكد من أن الصورة تظهر كعنصر كتلة */
+    margin: 0 auto; /* توسيط الصورة */
+}
+
+.card__shadow {
+    /* إذا لزم الأمر، يمكنك ترك الظل كما هو */
+    width: 150px;
+    height: 150px;
+    background-color: var(--first-color-alt);
+    border-radius: 50%;
+    position: absolute;
+    top: 3.75rem;
+    left: 50%;
+    transform: translateX(-50%); /* توسيط الظل */
+    filter: blur(45px);
+}
+
+
+

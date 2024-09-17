@@ -1,0 +1,60 @@
+﻿@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h4 class="alert-danger">Are You Sure You Want To Delete @Model.Name Department</h4>
+<br />
+<br />
+
+<input hidden asp-for="ImageName" />
+
+<form asp-action="Delete">
+
+    <div asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Age"></label>
+        <input class="form-control" asp-for="Age" />
+        <span class="text-danger" asp-validation-for="Age"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Address"></label>
+        <input class="form-control" asp-for="Address" />
+        <span class="text-danger" asp-validation-for="Address"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Email"></label>
+        <input class="form-control" asp-for="Email" />
+        <span class="text-danger" asp-validation-for="Email"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="PhoneNumber"></label>
+        <input class="form-control" asp-for="PhoneNumber" />
+        <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Salary"></label>
+        <input class="form-control" asp-for="Salary" />
+        <span class="text-danger" asp-validation-for="Salary"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="IsActive"></label>
+        <input class="form-control" asp-for="IsActive" type="checkbox" />
+        <span class="text-danger" asp-validation-for="IsActive"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="hireDate"></label>
+        <input class="form-control" asp-for="hireDate" />
+    </div>
+
+    @*<a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a> |*@
+    <input type="submit" value="Delete" class="btn btn-danger " />
+    <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-times"></i> Cancel</a>
+</form>
+
+
